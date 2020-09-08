@@ -5,6 +5,13 @@ ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
+# AWS
+gem 'aws-sdk-s3',              '1.46.0', require: false
+# ImageMagick
+gem 'image_processing',           '1.9.3'
+gem 'mini_magick',                '4.9.5'
+# active_storage_validations
+gem 'active_storage_validations', '0.8.2'
 # bcrypt
 gem 'bcrypt', '3.1.13'
 # faker

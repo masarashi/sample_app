@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # before_save { self.email = email.downcase }
   # before_save { email.downcase! }
   # attr_accessor :remember_token, :activation_token
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   
   before_save   :downcase_email
@@ -78,6 +79,10 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+  
   private
 
     # メールアドレスをすべて小文字にする
